@@ -21,10 +21,15 @@ public class PlayerController : MonoBehaviour {
                 moveSpeed = 6.0f;
                 throw new ArgumentNullException("moveSpeed argument is null so the value has been defaulted to 6.0");
             }
+
+            if (gravity <= 0.0f) {
+                gravity = 9.81f;
+                throw new ArgumentNullException("gravity argument is null so the value has been defaulted to 9.81f");
+            }
         } catch (ArgumentNullException e) {
             Debug.Log(e.Message);
         } finally {
-            Debug.Log("Movespeed validation always runs");
+            Debug.Log("moveSpeed validation always runs");
         }
     }
 
@@ -43,8 +48,15 @@ public class PlayerController : MonoBehaviour {
 
         Vector3 moveVel = new Vector3(move.x, 0, move.y);
         moveVel *= moveSpeed;
-
-        curMoveInput = moveVel;
+        try {
+            curMoveInput = moveVel;
+            if (curMoveInput == null) {
+                throw new ArgumentNullException("curMoveInput argument is null");
+            }
+        } catch (ArgumentNullException e) {
+            Debug.Log(e.Message);
+        }
+        
     }
 
     public void Look(InputAction.CallbackContext context) {
@@ -52,16 +64,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Fire(InputAction.CallbackContext context) {
-        try {
-            if (context.action.WasPerformedThisFrame()) {
-                throw new UnassignedReferenceException("Fire Pressed");
-            }
 
-            if (context.action.WasReleasedThisFrame()) {
-                throw new UnassignedReferenceException("Fire Released");
-            }
-        } catch (UnassignedReferenceException e) {
-            Debug.Log(e.Message);
-        }
     }
 }
