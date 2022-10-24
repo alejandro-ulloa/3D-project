@@ -1,16 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Singleton<T> : MonoBehaviour where T : Component {
-
+public abstract class Singelton<T> : MonoBehaviour where T : Component {
     static T instance;
-
     public static T Instance {
         get {
-            if (!instance) {
+            if (!instance)
                 instance = FindObjectOfType<T>();
-            }
+
             if (!instance) {
                 GameObject obj = new GameObject();
                 obj.name = typeof(T).Name;
