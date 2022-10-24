@@ -134,6 +134,17 @@
                 {
                     "name": "right",
                     "id": "59da8c03-7d21-4430-997b-a2c41df4d143",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and mouse",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "86c5b70a-1b0a-49d4-9acf-cc98a5fa7e5c",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",

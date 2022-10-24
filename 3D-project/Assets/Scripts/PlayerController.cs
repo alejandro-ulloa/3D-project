@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
             }
 
             if (context.action.WasReleasedThisFrame()) {
-                throw new UnassignedReferenceException("Fire Pressed");
+                throw new UnassignedReferenceException("Fire Released");
             }
         } catch (UnassignedReferenceException e) {
             Debug.Log(e.Message);
